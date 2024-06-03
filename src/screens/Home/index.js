@@ -77,9 +77,7 @@ const Home = () => {
   }, []);
 
   const handleOnClick = async selectedGenre => {
-    console.log({selectedGenre});
     const {data, status} = await getGenreMovies(selectedGenre);
-    console.log('selectedGenre movies', data);
     if (status === 200) {
       setFilteredMovies(data.results);
     } else {
