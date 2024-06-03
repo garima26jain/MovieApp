@@ -117,24 +117,24 @@ const Home = () => {
             ItemSeparatorComponent={() => <View style={{width: 15}}></View>}
           />
         </View>
-        {filteredMovies ? (
-          <Text>No movies for the selected filter</Text>
-        ) : (
-          <View style={styles.subContainer}>
-            {Array(endYear - startYear + 1)
-              .fill()
-              .map((_, index) => (
-                <Text Key={index} style={styles.year}>
-                  {startYear + index}
-                </Text>
-              ))}
-          </View>
-        )}
+        {/* <Text style={styles.year}> Please select a genre to view movies</Text> */}
+        {/* {!filteredMovies.length ? (
+          <Text style={styles.year}>No movies for the selected filter</Text>
+        ) : ( */}
         <View style={styles.subContainer}>
-          <MovieCards title="Now Playing" data={nowPlayingData} />
-          <MovieCards title="Popular Movies" data={popularMoviesData} />
-          <MovieCards title="Top Rated Movies" data={top_ratedData} />
+          {Array(endYear - startYear + 1)
+            .fill()
+            .map((_, index) => (
+              <Text Key={index} style={styles.year}>
+                <MovieCards
+                  title={`${startYear + index}`}
+                  data={nowPlayingData}
+                />
+              </Text>
+            ))}
         </View>
+        {/* )} */}
+        <View style={styles.subContainer}></View>
       </ScrollView>
     </View>
   );
